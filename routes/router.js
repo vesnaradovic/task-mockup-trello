@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var User = require('../models/users');
+const express = require('express');
+const router = express.Router();
+const User = require('../models/users');
 
 
 // GET route for reading data
@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
   // confirm that user typed same password twice
   if (req.body.password !== req.body.passwordConf) {
-    var err = new Error('Passwords do not match.');
+    let err = new Error('Passwords do not match.');
     err.status = 400;
     res.send("passwords dont match");
     return next(err);
@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
     req.body.password &&
     req.body.passwordConf) {
 
-    var userData = {
+    let userData = {
       email: req.body.email,
       username: req.body.username,
       password: req.body.password,
@@ -43,7 +43,7 @@ router.post('/', function (req, res, next) {
   } else if (req.body.logemail && req.body.logpassword) {
     User.authenticate(req.body.logemail, req.body.logpassword, function (error, user) {
       if (error || !user) {
-        var err = new Error('Wrong email or password.');
+        let err = new Error('Wrong email or password.');
         err.status = 401;
         return next(err);
       } else {
@@ -52,7 +52,7 @@ router.post('/', function (req, res, next) {
       }
     });
   } else {
-    var err = new Error('All fields required.');
+    let err = new Error('All fields required.');
     err.status = 400;
     return next(err);
   }
@@ -66,7 +66,7 @@ router.get('/profile', function (req, res, next) {
         return next(error);
       } else {
         if (user === null) {
-          var err = new Error('Not authorized! Go back!');
+          let err = new Error('Not authorized! Go back!');
           err.status = 400;
           return next(err);
         } else {
