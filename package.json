@@ -13,16 +13,23 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
+    "crypto-js": "^3.1.9-1",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "express-messages": "^1.0.1",
     "express-session": "^1.15.2",
     "express-validator": "^5.2.0",
+    "hmac-authentication": "^1.0.0",
     "joi": "^13.0.1",
     "mongoose": "^4.11.12",
     "morgan": "^1.8.1",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5"
   }
 }
